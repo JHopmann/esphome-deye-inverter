@@ -12,11 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+substitutions:
+  prefix: ""
+
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Daily Battery Charge"
-    id: daily_battery_charge
+    name: "${prefix}Daily Battery Charge"
+    id: "${prefix}daily_battery_charge"
     register_type: holding
     address: 70
     unit_of_measurement: "kWh"
@@ -30,8 +33,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Daily Battery Discharge"
-    id: daily_battery_discharge
+    name: "${prefix}Daily Battery Discharge"
+    id: "${prefix}"${prefix}daily_battery_discharge"
     register_type: holding
     address: 71
     unit_of_measurement: "kWh"
@@ -45,8 +48,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Total Battery Charge"
-    id: total_battery_charge
+    name: "${prefix}Total Battery Charge"
+    id: "${prefix}"${prefix}total_battery_charge"
     register_type: holding
     address: 72
     unit_of_measurement: "kWh"
@@ -60,8 +63,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Total Battery Discharge"
-    id: total_battery_discharge
+    name: "${prefix}Total Battery Discharge"
+    id: "${prefix}"${prefix}total_battery_discharge"
     register_type: holding
     address: 74
     unit_of_measurement: "kWh"
@@ -75,7 +78,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Temperature"
+    name: "${prefix}Battery Temperature"
     register_type: holding
     address: 182
     unit_of_measurement: "°C"
@@ -89,8 +92,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Voltage"
-    id: battery_voltage
+    name: "${prefix}Battery Voltage"
+    id: "${prefix}battery_voltage"
     register_type: holding
     address: 183
     unit_of_measurement: "V"
@@ -103,7 +106,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery"
+    name: "${prefix}Battery"
     register_type: holding
     address: 184
     unit_of_measurement: "%"
@@ -115,8 +118,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Power"
-    id: battery_power
+    name: "${prefix}Battery Power"
+    id: "${prefix}battery_power"
     register_type: holding
     address: 190
     unit_of_measurement: "W"
@@ -128,7 +131,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Current"
+    name: "${prefix}Battery Current"
     register_type: holding
     address: 191
     unit_of_measurement: "A"
@@ -143,8 +146,8 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Operation Mode"
-    id: battery_operation_mode
+    name: "${prefix}Battery Operation Mode"
+    id: "${prefix}battery_operation_mode"
     address: 213
     value_type: U_WORD
     entity_category: config
@@ -157,7 +160,7 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery BMS Type"
+    name: "${prefix}Battery BMS Type"
     address: 325
     value_type: U_WORD
     icon: "mdi:battery-charging-high"
@@ -178,8 +181,8 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Type"
-    id: battery_type
+    name: "${prefix}Battery Type"
+    id: "${prefix}battery_type"
     address: 200
     value_type: U_WORD
     entity_category: config
@@ -192,7 +195,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Wake Up"
+    name: "${prefix}Battery Wake Up"
     register_type: holding
     address: 214
     bitmask: 1 # Bit0: Battery 1 wake up (0=enabled, 1=disabled)
@@ -202,7 +205,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging"
+    name: "${prefix}Battery Generator Charging"
     register_type: holding
     address: 231
     bitmask: 1
@@ -212,7 +215,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Grid Charging"
+    name: "${prefix}Battery Grid Charging"
     register_type: holding
     address: 232
     bitmask: 1
@@ -223,7 +226,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging Start Voltage"
+    name: "${prefix}Battery Generator Charging Start Voltage"
     address: 225
     unit_of_measurement: "V"
     device_class: voltage
@@ -239,7 +242,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging Start SOC"
+    name: "${prefix}Battery Generator Charging Start SOC"
     address: 226
     unit_of_measurement: "%"
     value_type: U_WORD
@@ -253,7 +256,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Generator Charging Current"
+    name: "${prefix}Battery Generator Charging Current"
     address: 227
     unit_of_measurement: "A"
     device_class: current
@@ -268,7 +271,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Grid Charging Start Voltage"
+    name: "${prefix}Battery Grid Charging Start Voltage"
     address: 228
     unit_of_measurement: "V"
     device_class: voltage
@@ -284,7 +287,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Grid Charging Start SOC"
+    name: "${prefix}Battery Grid Charging Start SOC"
     address: 229
     unit_of_measurement: "%"
     value_type: U_WORD
@@ -298,7 +301,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Equalization Cycle"
+    name: "${prefix}Battery Equalization Cycle"
     address: 207
     unit_of_measurement: "d"
     device_class: duration
@@ -313,7 +316,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Equalization Time"
+    name: "${prefix}Battery Equalization Time"
     address: 208
     unit_of_measurement: "h"
     device_class: duration
@@ -329,7 +332,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Temperature Compensation"
+    name: "${prefix}Battery Temperature Compensation"
     address: 209
     unit_of_measurement: "mV/°C"
     value_type: S_WORD
@@ -343,7 +346,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Resistance"
+    name: "${prefix}Battery Resistance"
     address: 215
     unit_of_measurement: "mΩ"
     value_type: U_WORD
@@ -357,7 +360,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Charging Efficiency"
+    name: "${prefix}Battery Charging Efficiency"
     address: 216
     unit_of_measurement: "%"
     value_type: U_WORD
@@ -372,7 +375,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Shutdown SOC"
+    name: "${prefix}Battery Shutdown SOC"
     address: 217
     unit_of_measurement: "%"
     value_type: U_WORD
@@ -386,7 +389,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Restart SOC"
+    name: "${prefix}Battery Restart SOC"
     address: 218
     unit_of_measurement: "%"
     value_type: U_WORD
@@ -400,7 +403,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Low SOC"
+    name: "${prefix}Battery Low SOC"
     address: 219
     unit_of_measurement: "%"
     value_type: U_WORD
@@ -414,7 +417,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Shutdown Voltage"
+    name: "${prefix}Battery Shutdown Voltage"
     address: 220
     unit_of_measurement: "V"
     device_class: voltage
@@ -430,7 +433,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Restart Voltage"
+    name: "${prefix}Battery Restart Voltage"
     address: 221
     unit_of_measurement: "V"
     device_class: voltage
@@ -446,7 +449,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Low Voltage"
+    name: "${prefix}Battery Low Voltage"
     address: 222
     unit_of_measurement: "V"
     device_class: voltage
@@ -462,7 +465,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Equalization Voltage"
+    name: "${prefix}Battery Equalization Voltage"
     address: 201
     unit_of_measurement: "V"
     device_class: voltage
@@ -478,7 +481,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Absorption Voltage"
+    name: "${prefix}Battery Absorption Voltage"
     address: 202
     unit_of_measurement: "V"
     device_class: voltage
@@ -494,7 +497,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Float Voltage"
+    name: "${prefix}Battery Float Voltage"
     address: 203
     unit_of_measurement: "V"
     device_class: voltage
@@ -510,7 +513,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Capacity"
+    name: "${prefix}Battery Capacity"
     address: 204
     unit_of_measurement: "Ah"
     value_type: U_WORD
@@ -524,7 +527,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Battery Empty Voltage"
+    name: "${prefix}Battery Empty Voltage"
     address: 205
     unit_of_measurement: "V"
     device_class: voltage
@@ -540,8 +543,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: maximum_battery_charge_current
-    name: "Maximum Battery Charge Current"
+    id: "${prefix}maximum_battery_charge_current"
+    name: "${prefix}Maximum Battery Charge Current"
     address: 210
     unit_of_measurement: A
     device_class: current
@@ -553,8 +556,8 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    id: maximum_battery_discharge_current
-    name: "Maximum Battery Discharge Current"
+    id: "${prefix}maximum_battery_discharge_current"
+    name: "${prefix}Maximum Battery Discharge Current"
     address: 211
     unit_of_measurement: A
     device_class: current
@@ -566,7 +569,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "Maximum Battery Grid Charge Current"
+    name: "${prefix}Maximum Battery Grid Charge Current"
     address: 230
     unit_of_measurement: A
     entity_category: config
