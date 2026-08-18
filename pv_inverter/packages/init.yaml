@@ -86,9 +86,9 @@ debug:
   update_interval: 60s
 
 sensor:
-  - platform: wifi_signal
-    name: "${prefix}ESP WiFi Signal"
-    id: "${prefix}esp_wifi_signal"
+  - platform: wifi_signal_
+    name: "${prefix}ESP WiFi Signal_"
+    id: "${prefix}esp_wifi_signal_"
     icon: mdi:wifi
     update_interval: 60s
     entity_category: diagnostic
