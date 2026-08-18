@@ -41,6 +41,8 @@ substitutions:
   baud_rate: "9600"
   update_interval: "30s"
 
+  pv_inverter_api_key: "" 
+
 packages:
   inverter_logic:
     # 1. Die Quelle bleibt das Git-Repository (jetzt zeigt es auf DEINEN Fork)
