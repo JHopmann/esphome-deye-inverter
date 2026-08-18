@@ -17,8 +17,8 @@ substitutions:
   prefix: ""
   name: "deye-inverter"
   friendly_name: "Deye Inverter"
-  modbus_hub_id: "modbus_1" 
-  uart_hub_id: "modbus_uart_1" # Standardwert für den Master
+  modbus_hub_id: "modbus_1"    # Default Master
+  uart_hub_id: "modbus_uart_1" # Default Master
 
 
 esphome:
@@ -62,9 +62,6 @@ wifi:
 
 captive_portal:
 
-# ================================================================
-# In deiner packages/init.yaml (auf GitHub)
-# ================================================================
 uart:
   id: ${uart_hub_id}          # <--- Dynamisch gemacht
   baud_rate: ${baud_rate}
@@ -84,7 +81,6 @@ modbus_controller:
     update_interval: ${update_interval}
     command_throttle: 60ms
     offline_skip_updates: 3
-
 
 debug:
   update_interval: 60s

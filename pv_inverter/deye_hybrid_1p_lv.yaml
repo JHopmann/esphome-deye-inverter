@@ -1,15 +1,8 @@
 substitutions:
-  # Das sind die Standardwerte (Defaults), hauptsächlich für den Master:
-  name: "deye-inverter"
+  name: deye-inverter
   friendly_name: "Deye Inverter"
   device_description: "Deye Inverter SG0XLP1"
-  modbus_controller_id: "deye_modbus_controller"
-  
-  # Hier reichen wir die Variablen weiter, die wir vorhin besprochen haben:
-  prefix: ""
-  modbus_hub_id: "modbus_1"
-  uart_hub_id: "modbus_uart_1"
-  modbus_inverter_address: "0x01"
+  modbus_controller_id: deye_modbus_controller
   baud_rate: "9600"
   # Safe Mode Default parameters
   default_maximum_battery_charge_current: "130" # Amps
