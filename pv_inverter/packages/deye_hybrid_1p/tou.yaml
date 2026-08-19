@@ -5,6 +5,7 @@ substitutions:
     return ESPTime {.minute = minutes, .hour = hours};
   func_time_to_int: "return x.hour * 100 + x.minute;"
   prefix: "test"
+  tou_1_soc_id: "${prefix}time_of_use_1_soctest" 
 
 datetime:
   - platform: template
@@ -591,4 +592,36 @@ number:
           id: "${prefix}time_of_use_6_out_power"
           value: !lambda "return x;"
 
-
+  - platform: template
+    mode: box
+    name: "${prefix}Time of Use All SoC"
+    id: "${prefix}time_of_use_all_soc"
+    unit_of_measurement: "%"
+    device_class: battery
+    min_value: 0
+    max_value: 100
+    step: 1
+    update_interval: 1s
+    icon: "mdi:battery-clock"
+    disabled_by_default: true
+    lambda: |-
+      return id(${tou_1_soc_id}).state; 
+    set_action:
+      - number.set:
+          id: ${tou_1_soc_id}
+          value: !lambda "return x;"
+      - number.set:
+          id: "${prefix}time_of_use_2_soc"
+          value: !lambda "return x;"
+      - number.set:
+          id: "${prefix}time_of_use_3_soc"
+          value: !lambda "return x;"
+      - number.set:
+          id: "${prefix}time_of_use_4_soc"
+          value: !lambda "return x;"
+      - number.set:
+          id: "${prefix}time_of_use_5_soc"
+          value: !lambda "return x;"
+      - number.set:
+          id: "${prefix}time_of_use_6_soc"
+          value: !lambda "return x;"
