@@ -41,15 +41,10 @@ api:
           not: api.connected
         then:
           - logger.log: "Lost connection to HomeAssistant API - Activating safe mode"
-          - script.execute: set_safe_modbus_registers
+          - script.execute: ${prefix}set_safe_modbus_registers
 
   on_client_connected:
     - logger.log: "Connection to HomeAssistant API restored"
-
-ota:
-  - platform: esphome
-    id: ota_esphome
-    password: ${ota_password}
 
 wifi:
   ssid: ${wifi_ssid}
