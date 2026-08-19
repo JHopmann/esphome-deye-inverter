@@ -4,7 +4,7 @@ substitutions:
     uint8_t minutes = raw - (hours * 100);
     return ESPTime {.minute = minutes, .hour = hours};
   func_time_to_int: "return x.hour * 100 + x.minute;"
-  prefix: ""
+  prefix: "test"
   tou_1_soc_id: "${prefix}time_of_use_1_soc" 
 
 datetime:
