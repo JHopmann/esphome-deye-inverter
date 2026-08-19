@@ -29,7 +29,7 @@ datetime:
       ${func_int_to_time}
     set_action:
       - number.set:
-          id: "${prefix}time_of_use_2_start_raw"
+          id: "${prefix}time_of_use_2_start_rawtest2"
           value: !lambda ${func_time_to_int}
 
   - platform: template
