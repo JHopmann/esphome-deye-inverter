@@ -155,7 +155,7 @@ sensor:
     state_class: total_increasing
     accuracy_decimals: 1
     lambda: |-
-      return (id(pv1_power).state + id(pv2_power).state + id(battery_power).state - id(output_power).state);
+      return (id(${prefix}pv1_power).state + id(${prefix}pv2_power).state + id(${prefix}battery_power).state - id(${prefix}output_power).state);
     icon: "mdi:home-lightning-bolt"
 
   - platform: template
@@ -167,13 +167,13 @@ sensor:
     accuracy_decimals: 1
     lambda: |-
       return (
-        id(daily_energy_bought).state +
-        id(daily_pv_production).state +
-        id(daily_generator_production).state +
-        id(daily_battery_discharge).state -
-        id(daily_energy_sold).state -
-        id(daily_battery_charge).state -
-        id(daily_load_consumption).state
+        id(${prefix}daily_energy_bought).state +
+        id(${prefix}daily_pv_production).state +
+        id(${prefix}daily_generator_production).state +
+        id(${prefix}daily_battery_discharge).state -
+        id(${prefix}daily_energy_sold).state -
+        id(${prefix}daily_battery_charge).state -
+        id(${prefix}daily_load_consumption).state
       );
     icon: "mdi:home-lightning-bolt"
 
@@ -186,13 +186,13 @@ sensor:
     accuracy_decimals: 1
     lambda: |-
       return (
-        id(total_energy_bought).state +
-        id(total_pv_production).state +
-        id(total_generator_production).state +
-        id(total_battery_discharge).state -
-        id(total_energy_sold).state -
-        id(total_battery_charge).state -
-        id(total_consumption).state
+        id(${prefix}total_energy_bought).state +
+        id(${prefix}total_pv_production).state +
+        id(${prefix}total_generator_production).state +
+        id(${prefix}total_battery_discharge).state -
+        id(${prefix}total_energy_sold).state -
+        id(${prefix}total_battery_charge).state -
+        id(${prefix}total_consumption).state
       );
 
     icon: "mdi:home-lightning-bolt"

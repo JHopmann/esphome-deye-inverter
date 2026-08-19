@@ -163,7 +163,7 @@ switch:
     restore_mode: DISABLED
     disabled_by_default: true
     lambda: |-
-      return id(switch_time_point_1_charge_enable).state;
+      return id(${prefix}switch_time_point_1_charge_enable).state;
     turn_on_action:
       - switch.turn_on:
           id: "${prefix}switch_time_point_1_charge_enable"

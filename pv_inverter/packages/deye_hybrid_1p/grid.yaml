@@ -170,7 +170,7 @@ sensor:
     icon: "mdi:transmission-tower-import"
     lambda: |-
       auto high = id(total_energy_bought_high_bytes).state;
-      auto low = id(total_energy_bought_low_bytes).state;
+      auto low = id(${prefix}total_energy_bought_low_bytes).state;
       if (isnan(high) || isnan(low)) {
         return {}; 
       }
