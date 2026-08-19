@@ -114,7 +114,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator
+    name: "${prefix}Generator"
     id: "${prefix}switch_generator"
     register_type: holding
     address: 234
