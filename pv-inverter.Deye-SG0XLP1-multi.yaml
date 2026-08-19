@@ -55,7 +55,7 @@ packages:
           modbus_inverter_address: ${modbus_inverter_address}
           modbus_hub_id: ${modbus_hub_id}
           uart_hub_id: ${uart_hub_id}
-          prefix: "123" #${prefix}
+          prefix: ${prefix}
 
 # Set appropriately if using a different board. https://esphome.io/components/#supported-microcontrollers
 esp32:
