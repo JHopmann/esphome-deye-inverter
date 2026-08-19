@@ -27,7 +27,7 @@ select:
 binary_sensor:
   - platform: template
     name: "${prefix}Load Priority"
-    lambda: return id(energy_management_priority).current_option() == "Load First";
+    lambda: return id(${prefix}energy_management_priority).current_option() == "Load First";
     icon: "mdi:priority-high"
 
 switch:
