@@ -444,7 +444,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "${prefix}Time of Use 1 SoC"
-    id: time_of_use_1_soc #id: "${tou_1_soc_id}"
+    id: "${prefix}time_of_use_1_soc" #id: "${tou_1_soc_id}"
     unit_of_measurement: "%"
     address: 268
     min_value: 0
