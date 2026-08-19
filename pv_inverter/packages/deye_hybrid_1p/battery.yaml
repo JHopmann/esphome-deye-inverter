@@ -34,7 +34,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${prefix}Daily Battery Discharge"
-    id: "${prefix}"${prefix}daily_battery_discharge"
+    id: "${prefix}daily_battery_discharge"
     register_type: holding
     address: 71
     unit_of_measurement: "kWh"
