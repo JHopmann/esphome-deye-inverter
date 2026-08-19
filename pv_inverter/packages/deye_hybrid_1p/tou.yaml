@@ -7,12 +7,6 @@ substitutions:
   prefix: ""
   #tou_1_soc_id: "${prefix}time_of_use_1_soc" 
 
-globals:
-  - id: tou_1_soc_id
-    type: int
-    restore_value: yes
-    initial_value: time_of_use_1_soc
-
 datetime:
   - platform: template
     name: "${prefix}Time of Use 1 Start"
@@ -450,7 +444,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "${prefix}Time of Use 1 SoC"
-    id: "${tou_1_soc_id}"
+    id: time_of_use_1_soc #id: "${tou_1_soc_id}"
     unit_of_measurement: "%"
     address: 268
     min_value: 0
@@ -600,8 +594,8 @@ number:
 
   - platform: template
     mode: box
-    name: "${prefix}Time of Use All SoC"
-    id: "${prefix}time_of_use_all_soc"
+    name: "Time of Use All SoC"
+    id: time_of_use_all_soc
     unit_of_measurement: "%"
     device_class: battery
     min_value: 0
@@ -611,23 +605,23 @@ number:
     icon: "mdi:battery-clock"
     disabled_by_default: true
     lambda: |-
-      return id(${tou_1_soc_id}).state; 
+      return id(time_of_use_1_soc).state;
     set_action:
       - number.set:
-          id: ${tou_1_soc_id}
+          id: time_of_use_1_soc
           value: !lambda "return x;"
       - number.set:
-          id: "${prefix}time_of_use_2_soc"
+          id: time_of_use_2_soc
           value: !lambda "return x;"
       - number.set:
-          id: "${prefix}time_of_use_3_soc"
+          id: time_of_use_3_soc
           value: !lambda "return x;"
       - number.set:
-          id: "${prefix}time_of_use_4_soc"
+          id: time_of_use_4_soc
           value: !lambda "return x;"
       - number.set:
-          id: "${prefix}time_of_use_5_soc"
+          id: time_of_use_5_soc
           value: !lambda "return x;"
       - number.set:
-          id: "${prefix}time_of_use_6_soc"
+          id: time_of_use_6_soc
           value: !lambda "return x;"
