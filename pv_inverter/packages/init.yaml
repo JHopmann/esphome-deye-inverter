@@ -18,7 +18,7 @@ substitutions:
   friendly_name: "Deye Inverter"
   modbus_hub_id: "modbus_1"    # Default Master
   uart_hub_id: "modbus_uart_1" # Default Master
-  prefix: ""
+  prefix: "abc"
 
 esphome:
   name: "${name}"
