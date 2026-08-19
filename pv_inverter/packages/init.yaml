@@ -56,6 +56,7 @@ wifi:
 
 captive_portal:
 
+{% if prefix == 'master_' %}
 uart:
   id: ${uart_hub_id}
   baud_rate: ${baud_rate}
@@ -64,6 +65,7 @@ uart:
 modbus:
   id: ${modbus_hub_id}
   uart_id: ${uart_hub_id}
+{% endif %}
 
 modbus_controller:
   - id: ${modbus_controller_id}
