@@ -43,11 +43,9 @@ substitutions:
 
 packages:
   inverter_logic:
-    # 1. Die Quelle bleibt das Git-Repository (jetzt zeigt es auf DEINEN Fork)
-    url: https://github.com
+    url: https://github.com/JHopmann/esphome-deye-inverter
     refresh: 12h
     
-    # 2. Unter "files:" rufen wir die Datei auf und füttern sie mit den Variablen
     files:
       - path: pv_inverter/deye_hybrid_1p_lv.yaml
         vars:
