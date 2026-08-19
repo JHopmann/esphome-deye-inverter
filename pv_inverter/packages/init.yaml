@@ -1,4 +1,4 @@
-# Copyright 2025 Lewa-Reka <lewareka.yt@gmail.com>
+﻿# Copyright 2025 Lewa-Reka <lewareka.yt@gmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -82,9 +82,10 @@ modbus_controller:
 debug:
   update_interval: 60s
 
-  - platform: wifi_signal1
-    name: "${prefix}ESP WiFi Signal"
-    id: "${prefix}esp_wifi_signal"
+sensor:
+  - platform: wifi_signal
+    name: "${prefix}ESP WiFi Signal_"
+    id: "${prefix}esp_wifi_signal_"
     icon: mdi:wifi
     update_interval: 60s
     entity_category: diagnostic
