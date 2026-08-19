@@ -49,7 +49,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${prefix}Total Battery Charge"
-    id: "${prefix}"${prefix}total_battery_charge"
+    id: "${prefix}total_battery_charge"
     register_type: holding
     address: 72
     unit_of_measurement: "kWh"
@@ -64,7 +64,7 @@ sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
     name: "${prefix}Total Battery Discharge"
-    id: "${prefix}"${prefix}total_battery_discharge"
+    id: "${prefix}total_battery_discharge"
     register_type: holding
     address: 74
     unit_of_measurement: "kWh"
