@@ -13,7 +13,7 @@
 # limitations under the License.
 
 globals:
-  - id: "${prefix}last_total_energy_bought
+  - id: "${prefix}last_total_energy_bought"
     type: float
     restore_value: yes
   - id: "${prefix}last_update_time"
