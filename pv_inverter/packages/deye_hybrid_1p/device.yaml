@@ -360,7 +360,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "${prefix}Self Check Time"
-    id: "${prefix}self_check_time
+    id: "${prefix}self_check_time"
     register_type: holding
     address: 61
     unit_of_measurement: "s"
