@@ -4,6 +4,8 @@ substitutions:
     uint8_t minutes = raw - (hours * 100);
     return ESPTime {.minute = minutes, .hour = hours};
   func_time_to_int: "return x.hour * 100 + x.minute;"
+  prefix: ""
+
 
 datetime:
   - platform: template
@@ -207,7 +209,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     name: "${prefix}Time of Use 2 Start Raw"
-    id: "${prefix}time_of_use_2_start_raw"
+    id: "time_of_use_2_start_raw"
     modbus_controller_id: ${modbus_controller_id}
     register_type: holding
     address: 251
