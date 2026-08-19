@@ -85,7 +85,12 @@ modbus_controller:
 debug:
   update_interval: 60s
 
-
+  - platform: wifi_signal
+    name: "${prefix}ESP WiFi Signal"
+    id: "${prefix}esp_wifi_signal"
+    icon: mdi:wifi
+    update_interval: 60s
+    entity_category: diagnostic
   - platform: uptime
     name: "${prefix}ESP Uptime"
     id: "${prefix}esp_uptime"
