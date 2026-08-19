@@ -14,7 +14,7 @@
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "DC Temperature"
+    name: "${prefix}DC Temperature"
     register_type: holding
     address: 90
     unit_of_measurement: "°C"
@@ -29,7 +29,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "AC Temperature"
+    name: "${prefix}AC Temperature"
     register_type: holding
     address: 91
     unit_of_measurement: "°C"
@@ -43,7 +43,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Output Frequency"
+    name: "${prefix}Output Frequency"
     register_type: holding
     address: 193
     unit_of_measurement: "Hz"
@@ -56,7 +56,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Output L1 Current"
+    name: "${prefix}Output L1 Current"
     register_type: holding
     address: 164
     unit_of_measurement: "A"
@@ -69,7 +69,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Output L2 Current"
+    name: "${prefix}Output L2 Current"
     register_type: holding
     address: 165
     unit_of_measurement: "A"
@@ -82,7 +82,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Output L1 Power"
+    name: "${prefix}Output L1 Power"
     register_type: holding
     address: 173
     unit_of_measurement: "W"
@@ -94,7 +94,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Output L2 Power"
+    name: "${prefix}Output L2 Power"
     register_type: holding
     address: 174
     unit_of_measurement: "W"
@@ -106,8 +106,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Output Power"
-    id: output_power
+    name: "${prefix}Output Power"
+    id: "${prefix}output_power"
     register_type: holding
     address: 175
     unit_of_measurement: "W"
@@ -119,7 +119,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Output L1 Voltage"
+    name: "${prefix}Output L1 Voltage"
     register_type: holding
     address: 154
     unit_of_measurement: "V"
@@ -132,7 +132,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Output L2 Voltage"
+    name: "${prefix}Output L2 Voltage"
     register_type: holding
     address: 155
     unit_of_measurement: "V"

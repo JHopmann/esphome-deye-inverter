@@ -14,8 +14,8 @@
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV1 Power"
-    id: pv1_power
+    name: "${prefix}PV1 Power"
+    id: "${prefix}pv1_power"
     register_type: holding
     address: 186
     unit_of_measurement: "W"
@@ -27,8 +27,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV2 Power"
-    id: pv2_power
+    name: "${prefix}PV2 Power"
+    id: "${prefix}pv2_power"
     register_type: holding
     address: 187
     unit_of_measurement: "W"
@@ -40,8 +40,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV3 Power"
-    id: pv3_power
+    name: "${prefix}PV3 Power"
+    id: "${prefix}pv3_power"
     register_type: holding
     address: 188
     unit_of_measurement: "W"
@@ -53,8 +53,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV4 Power"
-    id: pv4_power
+    name: "${prefix}PV4 Power"
+    id: "${prefix}pv4_power"
     register_type: holding
     address: 189
     unit_of_measurement: "W"
@@ -65,9 +65,9 @@ sensor:
     icon: "mdi:solar-power-variant"
 
   - platform: template
-    name: "PV Power"
+    name: "${prefix}PV Power"
     unit_of_measurement: "W"
-    id: pv_power
+    id: "${prefix}pv_power"
     device_class: power
     state_class: "measurement"
     accuracy_decimals: 0
@@ -82,7 +82,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV1 Voltage"
+    name: "${prefix}PV1 Voltage"
     register_type: holding
     address: 109
     unit_of_measurement: "V"
@@ -95,7 +95,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV1 Current"
+    name: "${prefix}PV1 Current"
     register_type: holding
     address: 110
     unit_of_measurement: "A"
@@ -108,7 +108,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV2 Voltage"
+    name: "${prefix}PV2 Voltage"
     register_type: holding
     address: 111
     unit_of_measurement: "V"
@@ -121,7 +121,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV2 Current"
+    name: "${prefix}PV2 Current"
     register_type: holding
     address: 112
     unit_of_measurement: "A"
@@ -134,7 +134,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV3 Voltage"
+    name: "${prefix}PV3 Voltage"
     register_type: holding
     address: 113
     unit_of_measurement: "V"
@@ -147,7 +147,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV3 Current"
+    name: "${prefix}PV3 Current"
     register_type: holding
     address: 114
     unit_of_measurement: "A"
@@ -160,7 +160,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV4 Voltage"
+    name: "${prefix}PV4 Voltage"
     register_type: holding
     address: 115
     unit_of_measurement: "V"
@@ -173,7 +173,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "PV4 Current"
+    name: "${prefix}PV4 Current"
     register_type: holding
     address: 116
     unit_of_measurement: "A"
@@ -186,8 +186,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Daily PV Production"
-    id: daily_pv_production
+    name: "${prefix}Daily PV Production"
+    id: "${prefix}daily_pv_production"
     register_type: holding
     address: 108
     unit_of_measurement: "kWh"
@@ -201,8 +201,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "Total PV Production"
-    id: total_pv_production
+    name: "${prefix}Total PV Production"
+    id: "${prefix}total_pv_production"
     register_type: holding
     address: 96
     unit_of_measurement: "kWh"
