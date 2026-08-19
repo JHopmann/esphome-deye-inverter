@@ -5,7 +5,6 @@ substitutions:
     return ESPTime {.minute = minutes, .hour = hours};
   func_time_to_int: "return x.hour * 100 + x.minute;"
   prefix: "test"
-  tou_1_soc_id: "${prefix}time_of_use_1_soctest" 
 
 datetime:
   - platform: template
