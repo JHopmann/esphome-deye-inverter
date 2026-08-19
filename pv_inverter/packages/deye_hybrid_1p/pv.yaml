@@ -74,10 +74,10 @@ sensor:
     update_interval: 5s
     icon: "mdi:solar-power-variant"
     lambda: |-
-      float pv1 = isnan(id(pv1_power).state) ? 0.0 : id(pv1_power).state;
-      float pv2 = isnan(id(pv2_power).state) ? 0.0 : id(pv2_power).state;
-      float pv3 = isnan(id(pv3_power).state) ? 0.0 : id(pv3_power).state;
-      float pv4 = isnan(id(pv4_power).state) ? 0.0 : id(pv4_power).state;
+      float pv1 = isnan(id(${prefix}pv1_power).state) ? 0.0 : id(${prefix}pv1_power).state;
+      float pv2 = isnan(id(${prefix}pv2_power).state) ? 0.0 : id(${prefix}pv2_power).state;
+      float pv3 = isnan(id(${prefix}pv3_power).state) ? 0.0 : id(${prefix}pv3_power).state;
+      float pv4 = isnan(id(${prefix}pv4_power).state) ? 0.0 : id(${prefix}pv4_power).state;
       return pv1 + pv2 + pv3 +pv4;
 
   - platform: modbus_controller

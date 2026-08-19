@@ -535,7 +535,7 @@ number:
     icon: "mdi:sun-clock"
     disabled_by_default: true
     lambda: |-
-      return id(time_of_use_1_voltage).state;
+      return id(${prefix}time_of_use_1_voltage).state;
     set_action:
       - number.set:
           id: "${prefix}time_of_use_1_voltage"
@@ -569,7 +569,7 @@ number:
     icon: "mdi:power-plug"
     disabled_by_default: true
     lambda: |-
-      return id(time_of_use_1_out_power).state;
+      return id(${prefix}time_of_use_1_out_power).state;
     set_action:
       - number.set:
           id: "${prefix}time_of_use_1_out_power"
