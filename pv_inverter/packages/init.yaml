@@ -16,8 +16,10 @@ substitutions:
   update_interval: 5s
   name: "deye-inverter"
   friendly_name: "Deye Inverter"
-  modbus_hub_id: "modbus_1"    # Default Master
-  uart_hub_id: "modbus_uart_1" # Default Master
+  modbus_hub_id_1: "modbus_1"    # Default Master
+  modbus_hub_id_2: "modbus_2"    # Default Slave
+  uart_hub_id_1: "modbus_uart_1" # Default Master
+  uart_hub_id_1: "modbus_uart_2" # Default Slave
   prefix: ""
 
 esphome:
@@ -58,13 +60,18 @@ captive_portal:
 
 {% if prefix == 'master_' %}
 uart:
-  id: ${uart_hub_id}
-  baud_rate: ${baud_rate}
-  stop_bits: 1
+  - id: ${uart_hub_id_1}
+    baud_rate: ${baud_rate}
+    stop_bits: 1
+  - id: ${uart_hub_id_2}
+    baud_rate: ${baud_rate}
+    stop_bits: 1
 
 modbus:
-  id: ${modbus_hub_id}
-  uart_id: ${uart_hub_id}
+  id: ${modbus_hub_id_1}
+  uart_id: ${uart_hub_id_1}
+  id: ${modbus_hub_id_2}
+  uart_id: ${uart_hub_id_2}
 {% endif %}
 
 modbus_controller:
