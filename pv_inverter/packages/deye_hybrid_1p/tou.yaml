@@ -595,7 +595,7 @@ number:
   - platform: template
     mode: box
     name: "${prefix}Time of Use All SoC"
-    id: time_of_use_all_soc
+    id: "${prefix}time_of_use_all_soc"
     unit_of_measurement: "%"
     device_class: battery
     min_value: 0
@@ -608,20 +608,20 @@ number:
       return id(time_of_use_1_soc).state;
     set_action:
       - number.set:
-          id: time_of_use_1_soc
+          id: "${prefix}time_of_use_1_soc"
           value: !lambda "return x;"
       - number.set:
-          id: time_of_use_2_soc
+          id: "${prefix}time_of_use_2_soc"
           value: !lambda "return x;"
       - number.set:
-          id: time_of_use_3_soc
+          id: "${prefix}time_of_use_3_soc"
           value: !lambda "return x;"
       - number.set:
-          id: time_of_use_4_soc
+          id: "${prefix}time_of_use_4_soc"
           value: !lambda "return x;"
       - number.set:
-          id: time_of_use_5_soc
+          id: "${prefix}time_of_use_5_soc"
           value: !lambda "return x;"
       - number.set:
-          id: time_of_use_6_soc
+          id: "${prefix}time_of_use_6_soc"
           value: !lambda "return x;"
