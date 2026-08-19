@@ -23,7 +23,7 @@ packages:
   tou: !include packages/deye_hybrid_1p/tou.yaml
 
 script:
-  - id: ${prefix}set_safe_modbus_registers
+  - id: set_safe_modbus_registers
     then:
       - logger.log:
           level: INFO
