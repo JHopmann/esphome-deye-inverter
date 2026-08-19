@@ -4,14 +4,14 @@ substitutions:
     uint8_t minutes = raw - (hours * 100);
     return ESPTime {.minute = minutes, .hour = hours};
   func_time_to_int: "return x.hour * 100 + x.minute;"
-  prefix: "test"
-  #tou_1_soc_id: "${prefix}time_of_use_1_soctest" 
+  prefix: ""
+  #tou_1_soc_id: "${prefix}time_of_use_1_soc" 
 
 globals:
   - id: tou_1_soc_id
     type: int
     restore_value: yes
-    initial_value: "${prefix}time_of_use_1_soctest" 
+    initial_value: time_of_use_1_soc
 
 datetime:
   - platform: template
@@ -450,7 +450,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     name: "${prefix}Time of Use 1 SoC"
-    id: ${tou_1_soc_id} 
+    id: "${tou_1_soc_id}"
     unit_of_measurement: "%"
     address: 268
     min_value: 0
