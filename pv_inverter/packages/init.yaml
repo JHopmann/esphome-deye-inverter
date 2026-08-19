@@ -18,7 +18,7 @@ substitutions:
   friendly_name: "Deye Inverter"
   modbus_hub_id: "modbus_1"    # Default Master
   uart_hub_id: "modbus_uart_1" # Default Master
-
+  prefix: ""
 
 esphome:
   name: "${name}"
@@ -62,15 +62,13 @@ wifi:
 captive_portal:
 
 uart:
-  id: ${uart_hub_id}          # <--- Dynamisch gemacht
+  id: ${uart_hub_id}
   baud_rate: ${baud_rate}
   stop_bits: 1
-  # HINWEIS: Füge hier KEINE festen Pins ein, die Pins definieren wir 
-  # gleich sicher und sauber in deiner Hauptdatei in Home Assistant!
 
 modbus:
-  id: ${modbus_hub_id}        # <--- Dynamisch gemacht
-  uart_id: ${uart_hub_id}     # <--- Verweist auf die dynamische UART-ID
+  id: ${modbus_hub_id}
+  uart_id: ${uart_hub_id}
 
 modbus_controller:
   - id: ${modbus_controller_id}

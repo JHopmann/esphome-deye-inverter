@@ -44,7 +44,7 @@ substitutions:
 packages:
   inverter_logic:
     url: https://github.com/JHopmann/esphome-deye-inverter
-    refresh: 12h
+    refresh: 0s
     
     files:
       - path: pv_inverter/deye_hybrid_1p_lv.yaml
