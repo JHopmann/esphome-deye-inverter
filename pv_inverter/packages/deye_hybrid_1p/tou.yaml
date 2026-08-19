@@ -605,7 +605,7 @@ number:
     icon: "mdi:battery-clock"
     disabled_by_default: true
     lambda: |-
-      return id(${prefix}time_of_use_1_soc).state;
+      return id("${prefix}time_of_use_1_soc").state;
     set_action:
       - number.set:
           id: "${prefix}time_of_use_1_soc"
