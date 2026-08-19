@@ -594,7 +594,7 @@ number:
 
   - platform: template
     mode: box
-    name: "Time of Use All SoC"
+    name: "${prefix}Time of Use All SoC"
     id: time_of_use_all_soc
     unit_of_measurement: "%"
     device_class: battery
