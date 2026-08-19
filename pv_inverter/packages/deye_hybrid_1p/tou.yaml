@@ -553,7 +553,7 @@ number:
           id: "${prefix}time_of_use_5_voltage"
           value: !lambda "return x;"
       - number.set:
-          id: "${prefix}time_of_use_6_voltage
+          id: "${prefix}time_of_use_6_voltage"
           value: !lambda "return x;"
 
   - platform: template
