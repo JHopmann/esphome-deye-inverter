@@ -608,7 +608,7 @@ number:
       return id(${tou_1_soc_id}).state; 
     set_action:
       - number.set:
-          id: "${prefix}time_of_use_1_soc"
+          id: ${tou_1_soc_id}
           value: !lambda "return x;"
       - number.set:
           id: "${prefix}time_of_use_2_soc"
