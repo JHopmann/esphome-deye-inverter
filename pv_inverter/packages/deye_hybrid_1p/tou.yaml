@@ -25,11 +25,11 @@ datetime:
     type: time
     update_interval: 15s
     lambda: |-
-      auto raw = id("${prefix}time_of_use_2_start_rawtest").state;
+      auto raw = id(${prefix}time_of_use_2_start_raw).state;
       ${func_int_to_time}
     set_action:
       - number.set:
-          id: "${prefix}time_of_use_2_start_rawtest2"
+          id: ${prefix}time_of_use_2_start_raw
           value: !lambda ${func_time_to_int}
 
   - platform: template
