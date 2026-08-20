@@ -64,7 +64,7 @@ modbus_controller:
     modbus_id: ${modbus_hub_id}
     setup_priority: -10
     update_interval: ${update_interval}
-    command_throttle: 60ms
+    #command_throttle: 60ms         # deprecated since 2026.8.0
     offline_skip_updates: 3
 
 debug:

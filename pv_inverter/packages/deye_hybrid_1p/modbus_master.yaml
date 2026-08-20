@@ -22,8 +22,12 @@ substitutions:
 modbus:
   - id: modbus_1
     uart_id: modbus_uart_1
+    #turnaround_time: 250ms    # since 2026.8.0
+    send_wait_time: 250ms      # will be removed when turnaround_time is well established in 2027.2.0
   - id: modbus_2
     uart_id: modbus_uart_2
+    #turnaround_time: 250ms    # since 2026.8.0
+    send_wait_time: 250ms      # will be removed when turnaround_time is well established in 2027.2.0
 
 uart:
   - id: modbus_uart_1
