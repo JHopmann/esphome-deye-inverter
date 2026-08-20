@@ -1,0 +1,38 @@
+# Copyright 2025 Lewa-Reka & Harvey Dent
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# modbus_master.yaml
+# This block should be loaded only in the master (or in a single inverter environment).
+# It defines BOTH Modbus-Hubs and the UARTs.
+modbus:
+  - id: modbus_1
+    uart_id: modbus_uart_1
+  - id: modbus_2
+    uart_id: modbus_uart_2
+
+uart:
+  - id: modbus_uart_1
+    tx_pin: ${uart_tx_pin_master}
+    rx_pin: ${uart_rx_pin_master}
+    baud_rate: 9600
+    stop_bits: 1
+    data_bits: 8
+    parity: NONE
+  - id: modbus_uart_2
+    tx_pin: ${uart_tx_pin_slave}
+    rx_pin: ${uart_rx_pin_slave}
+    baud_rate: 9600
+    stop_bits: 1
+    data_bits: 8
+    parity: NONE

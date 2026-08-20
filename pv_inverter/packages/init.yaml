@@ -58,22 +58,6 @@ wifi:
 
 captive_portal:
 
-{% if prefix == 'master_' %}
-uart:
-  - id: ${uart_hub_id_1}
-    baud_rate: ${baud_rate}
-    stop_bits: 1
-  - id: ${uart_hub_id_2}
-    baud_rate: ${baud_rate}
-    stop_bits: 1
-
-modbus:
-  id: ${modbus_hub_id_1}
-  uart_id: ${uart_hub_id_1}
-  id: ${modbus_hub_id_2}
-  uart_id: ${uart_hub_id_2}
-{% endif %}
-
 modbus_controller:
   - id: ${modbus_controller_id}
     address: ${modbus_inverter_address}
