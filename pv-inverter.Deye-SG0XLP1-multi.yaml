@@ -63,11 +63,6 @@ esp32:
   framework:
     type: esp-idf
 
-uart:
-  # Default TX and RX pins, if TTL converter is connected differently, set appropriate pins
-  tx_pin: GPIO17
-  rx_pin: GPIO16
-
 modbus:
 #  flow_control_pin: GPIO4 # Uncomment and set appropriate pin if your TTL converter requires it
 

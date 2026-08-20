@@ -38,13 +38,6 @@ esphome:
   min_version: "2025.6.0"
   name_add_mac_suffix: true
 
-uart:
-  tx_pin: GPIO17
-  rx_pin: GPIO18
-
-modbus:
-  flow_control_pin: GPIO21
-
 logger:
   level: WARN # VERBOSE / DEBUG / INFO / WARN
 
