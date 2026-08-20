@@ -19,7 +19,7 @@ substitutions:
   modbus_hub_id_1: "modbus_1"    # Default Master
   modbus_hub_id_2: "modbus_2"    # Default Slave
   uart_hub_id_1: "modbus_uart_1" # Default Master
-  uart_hub_id_1: "modbus_uart_2" # Default Slave
+  uart_hub_id_2: "modbus_uart_2" # Default Slave
   prefix: ""
 
 esphome:
