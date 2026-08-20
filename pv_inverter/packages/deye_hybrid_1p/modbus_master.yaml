@@ -19,9 +19,12 @@
 substitutions:
   prefix: ""
 
-  uart_tx_pin_master: GPIO17
-  uart_rx_pin_master: GPIO04
-  uart_flow_control_pin_master: GPIO16
+#  uart_rx_pin_master: "GPIO16"
+#  uart_tx_pin_master: "GPIO17"
+
+  uart_tx_pin_master: "GPIO17"
+  uart_rx_pin_master: "GPIO04"
+  uart_flow_control_pin_master: "GPIO16"
 
   uart_tx_pin_slave: GPIO17
   uart_rx_pin_slave: GPIO04
