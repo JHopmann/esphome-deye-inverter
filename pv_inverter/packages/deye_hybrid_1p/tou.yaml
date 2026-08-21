@@ -2,7 +2,6 @@ substitutions:
   nameprefix: ""   # No Prefix (Single-Inverter)
   prefix: ""       # No Prefix (Single-Inverter)
 
-substitutions:
   func_int_to_time: |-
     uint8_t hours = raw / 100;
     uint8_t minutes = raw - (hours * 100);
