@@ -22,6 +22,10 @@ substitutions:
   nameprefix: ""   # No Prefix (Single-Inverter)
   prefix: ""       # No Prefix (Single-Inverter)
 
+  uart_tx_pin_slave: "GPIO26"
+  uart_rx_pin_slave: "GPIO35"
+  uart_flow_control_pin_slave: "GPIO25"
+
 modbus:
   - id: modbus_1
     uart_id: modbus_uart_1
