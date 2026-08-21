@@ -63,8 +63,5 @@ esp32:
   framework:
     type: esp-idf
 
-modbus:
-#  flow_control_pin: GPIO4 # Uncomment and set appropriate pin if your TTL converter requires it
-
 #logger:
 #  level: VERBOSE # VERBOSE / DEBUG / INFO / WARN
