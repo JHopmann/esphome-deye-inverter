@@ -13,12 +13,13 @@
 # limitations under the License.
 
 substitutions:
-  prefix: ""
+  nameprefix: ""   # No Prefix (Single-Inverter)
+  prefix: ""       # No Prefix (Single-Inverter)
 
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Load L1 Voltage"
+    name: "${nameprefix}Load L1 Voltage"
     register_type: holding
     address: 157
     unit_of_measurement: "V"
@@ -31,7 +32,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Load L2 Voltage"
+    name: "${nameprefix}Load L2 Voltage"
     register_type: holding
     address: 158
     unit_of_measurement: "V"
@@ -44,7 +45,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Load L1 Power"
+    name: "${nameprefix}Load L1 Power"
     register_type: holding
     address: 176
     unit_of_measurement: "W"
@@ -56,7 +57,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Load L2 Power"
+    name: "${nameprefix}Load L2 Power"
     register_type: holding
     address: 177
     unit_of_measurement: "W"
@@ -68,7 +69,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Load Power"
+    name: "${nameprefix}Load Power"
     register_type: holding
     address: 178
     unit_of_measurement: "W"
@@ -80,7 +81,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Load L1 Current"
+    name: "${nameprefix}Load L1 Current"
     register_type: holding
     address: 179
     unit_of_measurement: "A"
@@ -93,7 +94,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Load L2 Current"
+    name: "${nameprefix}Load L2 Current"
     register_type: holding
     address: 180
     unit_of_measurement: "A"
@@ -106,7 +107,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Load Frequency"
+    name: "${nameprefix}Load Frequency"
     register_type: holding
     address: 192
     unit_of_measurement: "Hz"
@@ -119,7 +120,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Daily Load Consumption"
+    name: "${nameprefix}Daily Load Consumption"
     id: "${prefix}daily_load_consumption"
     register_type: holding
     address: 84
@@ -134,7 +135,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Total Consumption"
+    name: "${nameprefix}Total Consumption"
     id: "${prefix}total_consumption"
     register_type: holding
     address: 85
@@ -148,7 +149,7 @@ sensor:
     icon: "mdi:home-lightning-bolt"
 
   - platform: template
-    name: "${prefix}Power Losses" # Includes consumption of the inverter device itself as well AC/DC conversion losses
+    name: "${nameprefix}Power Losses" # Includes consumption of the inverter device itself as well AC/DC conversion losses
     id: "${prefix}power_losses"
     unit_of_measurement: "W"
     device_class: power
@@ -159,7 +160,7 @@ sensor:
     icon: "mdi:home-lightning-bolt"
 
   - platform: template
-    name: "${prefix}Daily Losses" # Includes today's consumption of the inverter device itself as well AC/DC conversion losses
+    name: "${nameprefix}Daily Losses" # Includes today's consumption of the inverter device itself as well AC/DC conversion losses
     id: "${prefix}daily_losses"
     unit_of_measurement: "kWh"
     device_class: energy
@@ -178,7 +179,7 @@ sensor:
     icon: "mdi:home-lightning-bolt"
 
   - platform: template
-    name: "${prefix}Total Losses" # Includes total consumption of the inverter device itself as well AC/DC conversion losses
+    name: "${nameprefix}Total Losses" # Includes total consumption of the inverter device itself as well AC/DC conversion losses
     id: "${prefix}total_losses"
     unit_of_measurement: "kWh"
     device_class: energy

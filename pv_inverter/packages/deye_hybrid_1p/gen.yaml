@@ -13,12 +13,13 @@
 # limitations under the License.
 
 substitutions:
-  prefix: ""
+  nameprefix: ""   # No Prefix (Single-Inverter)
+  prefix: ""       # No Prefix (Single-Inverter)
 
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Daily Generator Production"
+    name: "${nameprefix}Daily Generator Production"
     id: "${prefix}daily_generator_production"
     register_type: holding
     address: 62
@@ -33,7 +34,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Total Generator Production"
+    name: "${nameprefix}Total Generator Production"
     id: "${prefix}total_generator_production"
     register_type: holding
     address: 92
@@ -48,7 +49,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator L1 Voltage"
+    name: "${nameprefix}Generator L1 Voltage"
     id: "${prefix}generator_l1_voltage"
     register_type: holding
     address: 181
@@ -62,7 +63,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Frequency"
+    name: "${nameprefix}Generator Frequency"
     register_type: holding
     address: 196
     unit_of_measurement: "Hz"
@@ -75,7 +76,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Power Total"
+    name: "${nameprefix}Generator Power Total"
     id: "${prefix}generator_power_total"
     register_type: holding
     address: 166
@@ -89,7 +90,7 @@ sensor:
 binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Connected Status"
+    name: "${nameprefix}Generator Connected Status"
     id: "${prefix}generator_connected_status"
     register_type: holding
     address: 195
@@ -100,7 +101,7 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Port Use"
+    name: "${nameprefix}Generator Port Use"
     address: 235
     value_type: U_WORD
     entity_category: config
@@ -114,7 +115,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator"
+    name: "${nameprefix}Generator"
     id: "${prefix}switch_generator"
     register_type: holding
     address: 234
@@ -126,7 +127,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}SmartLoad Off Voltage"
+    name: "${nameprefix}SmartLoad Off Voltage"
     address: 236
     unit_of_measurement: "V"
     device_class: voltage
@@ -142,7 +143,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}SmartLoad Off SOC"
+    name: "${nameprefix}SmartLoad Off SOC"
     address: 237
     unit_of_measurement: "%"
     value_type: U_WORD
@@ -156,7 +157,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}SmartLoad On Voltage"
+    name: "${nameprefix}SmartLoad On Voltage"
     address: 238
     unit_of_measurement: "V"
     device_class: voltage
@@ -172,7 +173,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}SmartLoad On SOC"
+    name: "${nameprefix}SmartLoad On SOC"
     address: 239
     unit_of_measurement: "%"
     value_type: U_WORD
@@ -186,7 +187,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Operating Time"
+    name: "${nameprefix}Generator Operating Time"
     id: "${prefix}generator_operating_time"
     unit_of_measurement: "h"
     device_class: duration
@@ -203,7 +204,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Cooling Time"
+    name: "${nameprefix}Generator Cooling Time"
     id: "${prefix}generator_cooling_time"
     unit_of_measurement: "h"
     device_class: duration
@@ -220,7 +221,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Min PV Power"
+    name: "${nameprefix}Generator Min PV Power"
     id: "${prefix}generator_min_pv_power"
     unit_of_measurement: "W"
     device_class: power

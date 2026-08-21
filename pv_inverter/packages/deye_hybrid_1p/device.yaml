@@ -11,10 +11,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+substitutions:
+  nameprefix: ""   # No Prefix (Single-Inverter)
+  prefix: ""       # No Prefix (Single-Inverter)
+  
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Modbus Address"
+    name: "${nameprefix}Device Modbus Address"
     register_type: holding
     address: 1
     unit_of_measurement: ""
@@ -25,7 +30,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Rated Power"
+    name: "${nameprefix}Device Rated Power"
     id: "${prefix}device_rated_power_raw"
     register_type: holding
     address: 16
@@ -40,7 +45,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device MPPTs"
+    name: "${nameprefix}Device MPPTs"
     register_type: holding
     address: 18
     unit_of_measurement: ""
@@ -61,7 +66,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Phases"
+    name: "${nameprefix}Device Phases"
     register_type: holding
     address: 18
     unit_of_measurement: ""
@@ -83,7 +88,7 @@ sensor:
 binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid Connected Status"
+    name: "${nameprefix}Grid Connected Status"
     id: "${prefix}grid_connected_status"
     register_type: holding
     address: 194
@@ -94,7 +99,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Power Switch"
+    name: "${nameprefix}Power Switch"
     id: "${prefix}switch_power"
     register_type: holding
     address: 43
@@ -109,7 +114,7 @@ text_sensor:
     register_type: holding
     address: 59
     raw_encode: HEXBYTES
-    name: "${prefix}Running Status"
+    name: "${nameprefix}Running Status"
     icon: mdi:play-circle
     lambda: |-
       uint16_t value = modbus_controller::word_from_hex_str(x, 0);
@@ -125,7 +130,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Type"
+    name: "${nameprefix}Device Type"
     register_type: holding
     address: 0
     bitmask: 0
@@ -154,7 +159,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Serial Number"
+    name: "${nameprefix}Device Serial Number"
     register_type: holding
     address: 3
     response_size: 10
@@ -176,7 +181,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Protocol Version"
+    name: "${nameprefix}Device Protocol Version"
     register_type: holding
     address: 2
     bitmask: 0
@@ -192,7 +197,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Chip Type"
+    name: "${nameprefix}Device Chip Type"
     register_type: holding
     address: 9
     bitmask: 0
@@ -216,7 +221,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Comm Board Firmware Field 2"
+    name: "${nameprefix}Device Comm Board Firmware Field 2"
     register_type: holding
     address: 10
     bitmask: 0
@@ -232,7 +237,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Control Board Aux Version"
+    name: "${nameprefix}Device Control Board Aux Version"
     register_type: holding
     address: 11
     bitmask: 0
@@ -248,7 +253,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Control Board Firmware Field 2"
+    name: "${nameprefix}Device Control Board Firmware Field 2"
     register_type: holding
     address: 12
     bitmask: 0
@@ -264,7 +269,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Control Board Firmware Version"
+    name: "${nameprefix}Device Control Board Firmware Version"
     register_type: holding
     address: 13
     bitmask: 0
@@ -280,7 +285,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Comm Board Firmware Version"
+    name: "${nameprefix}Device Comm Board Firmware Version"
     register_type: holding
     address: 14
     bitmask: 0
@@ -296,7 +301,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Alarm"
+    name: "${nameprefix}Device Alarm"
     register_type: holding
     entity_category: diagnostic
     address: 101
@@ -323,7 +328,7 @@ text_sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Device Fault"
+    name: "${nameprefix}Device Fault"
     register_type: holding
     address: 103
     response_size: 8
@@ -359,7 +364,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Self Check Time"
+    name: "${nameprefix}Self Check Time"
     id: "${prefix}self_check_time"
     register_type: holding
     address: 61
@@ -375,7 +380,7 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Meter"
+    name: "${nameprefix}Meter"
     address: 326
     value_type: U_WORD
     entity_category: config

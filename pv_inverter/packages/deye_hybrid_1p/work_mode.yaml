@@ -1,9 +1,14 @@
+
+substitutions:
+  nameprefix: ""   # No Prefix (Single-Inverter)
+  prefix: ""       # No Prefix (Single-Inverter)
+
 select:
   - platform: modbus_controller
     id: "${prefix}energy_management_priority"
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Energy Management Priority"
+    name: "${nameprefix}Energy Management Priority"
     address: 243
     value_type: U_WORD
     icon: "mdi:priority-high"
@@ -15,7 +20,7 @@ select:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     id: "${prefix}system_work_mode"
-    name: "${prefix}System Work Mode"
+    name: "${nameprefix}System Work Mode"
     address: 244
     value_type: U_WORD
     icon: "mdi:cog"
@@ -26,7 +31,7 @@ select:
 
 binary_sensor:
   - platform: template
-    name: "${prefix}Load Priority"
+    name: "${nameprefix}Load Priority"
     lambda: return id(${prefix}energy_management_priority).current_option() == "Load First";
     icon: "mdi:priority-high"
 
@@ -34,7 +39,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Solar Sell"
+    name: "${nameprefix}Solar Sell"
     id: "${prefix}switch_solar_sell"
     register_type: holding
     address: 247
@@ -45,7 +50,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Microinverter Export cut-off"
+    name: "${nameprefix}Microinverter Export cut-off"
     register_type: holding
     address: 280
     bitmask: 0
@@ -54,7 +59,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Peak Shaving Enable"
+    name: "${nameprefix}Generator Peak Shaving Enable"
     register_type: holding
     address: 280
     bitmask: 4
@@ -63,7 +68,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid Peak Shaving Enable"
+    name: "${nameprefix}Grid Peak Shaving Enable"
     register_type: holding
     address: 280
     bitmask: 8
@@ -74,7 +79,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     id: "${prefix}max_sell_power"
-    name: "${prefix}Max Sell Power"
+    name: "${nameprefix}Max Sell Power"
     unit_of_measurement: W
     device_class: power
     min_value: 0
@@ -87,7 +92,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Max Solar Power"
+    name: "${nameprefix}Max Solar Power"
     id: "${prefix}max_solar_power"
     unit_of_measurement: W
     device_class: power
@@ -101,7 +106,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Zero Export Power"
+    name: "${nameprefix}Zero Export Power"
     id: "${prefix}zero_export_power"
     address: 206
     unit_of_measurement: "W"
@@ -116,7 +121,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Peak shaving"
+    name: "${nameprefix}Generator Peak shaving"
     id: "${prefix}generator_peak_shaving_power"
     register_type: holding
     address: 292
@@ -131,7 +136,7 @@ number:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid Peak Shaving Power"
+    name: "${nameprefix}Grid Peak Shaving Power"
     id: "${prefix}grid_peak_shaving_power"
     register_type: holding
     address: 293

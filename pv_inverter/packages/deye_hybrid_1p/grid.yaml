@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+substitutions:
+  nameprefix: ""   # No Prefix (Single-Inverter)
+  prefix: ""       # No Prefix (Single-Inverter)
+  
 globals:
   - id: "${prefix}last_total_energy_bought"
     type: float
@@ -23,7 +27,7 @@ globals:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid L1 Power"
+    name: "${nameprefix}Grid L1 Power"
     register_type: holding
     address: 167
     unit_of_measurement: "W"
@@ -35,7 +39,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid L2 Power"
+    name: "${nameprefix}Grid L2 Power"
     register_type: holding
     address: 168
     unit_of_measurement: "W"
@@ -47,7 +51,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid Power"
+    name: "${nameprefix}Grid Power"
     register_type: holding
     address: 169
     unit_of_measurement: "W"
@@ -59,7 +63,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid Frequency"
+    name: "${nameprefix}Grid Frequency"
     register_type: holding
     address: 79
     unit_of_measurement: "Hz"
@@ -72,7 +76,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid L1 Voltage"
+    name: "${nameprefix}Grid L1 Voltage"
     id: "${prefix}grid_voltage_l1"
     register_type: holding
     address: 150
@@ -86,7 +90,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid L2 Voltage"
+    name: "${nameprefix}Grid L2 Voltage"
     id: "${prefix}grid_voltage_l2"
     register_type: holding
     address: 151
@@ -100,7 +104,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid Voltage"
+    name: "${nameprefix}Grid Voltage"
     id: "${prefix}grid_voltage"
     register_type: holding
     address: 152
@@ -114,7 +118,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Daily Energy Bought"
+    name: "${nameprefix}Daily Energy Bought"
     id: "${prefix}daily_energy_bought"
     register_type: holding
     address: 76
@@ -129,7 +133,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Daily Energy Sold"
+    name: "${nameprefix}Daily Energy Sold"
     id: "${prefix}daily_energy_sold"
     register_type: holding
     address: 77
@@ -161,7 +165,7 @@ sensor:
 
   # Main sensor + fix
   - platform: template
-    name: "${prefix}Total Energy Bought"
+    name: "${nameprefix}Total Energy Bought"
     id: "${prefix}total_energy_bought"
     unit_of_measurement: "kWh"
     device_class: energy
@@ -190,7 +194,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Total Energy Sold"
+    name: "${nameprefix}Total Energy Sold"
     id: "${prefix}total_energy_sold"
     register_type: holding
     address: 81
@@ -205,7 +209,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}External CT L1 Power"
+    name: "${nameprefix}External CT L1 Power"
     register_type: holding
     address: 170
     unit_of_measurement: "W"
@@ -216,7 +220,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}External CT L2 Power"
+    name: "${nameprefix}External CT L2 Power"
     register_type: holding
     address: 171
     unit_of_measurement: "W"
@@ -227,7 +231,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}External CT Power"
+    name: "${nameprefix}External CT Power"
     register_type: holding
     address: 172
     unit_of_measurement: "W"
@@ -238,7 +242,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}External CT L1 Current"
+    name: "${nameprefix}External CT L1 Current"
     id: "${prefix}external_ct_l1_current"
     register_type: holding
     address: 162
@@ -252,7 +256,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}External CT L2 Current"
+    name: "${nameprefix}External CT L2 Current"
     id: "${prefix}external_ct_l2_current"
     register_type: holding
     address: 163
@@ -268,7 +272,7 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Grid Frequency"
+    name: "${nameprefix}Grid Frequency"
     address: 285
     value_type: U_WORD
     entity_category: config
@@ -280,7 +284,7 @@ select:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Charging Signal"
+    name: "${nameprefix}Charging Signal"
     address: 242
     value_type: U_WORD
     entity_category: config
@@ -295,7 +299,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Force Off Grid"
+    name: "${nameprefix}Force Off Grid"
     id: "${prefix}switch_off_grid"
     register_type: holding
     address: 281
@@ -306,7 +310,7 @@ switch:
   - platform: modbus_controller
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Generator Grid Side"
+    name: "${nameprefix}Generator Grid Side"
     register_type: holding
     address: 280
     bitmask: 12
@@ -318,7 +322,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     id: "${prefix}grid_voltage_protection_high"
-    name: "${prefix}Grid voltage protection - high"
+    name: "${nameprefix}Grid voltage protection - high"
     unit_of_measurement: "V"
     device_class: voltage
     entity_category: config
@@ -336,7 +340,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     id: "${prefix}grid_voltage_protection_low"
-    name: "${prefix}Grid voltage protection - low"
+    name: "${nameprefix}Grid voltage protection - low"
     unit_of_measurement: "V"
     device_class: voltage
     entity_category: config
@@ -354,7 +358,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     id: "${prefix}grid_requency_protection_high"
-    name: "${prefix}Grid Frequency Protection - high"
+    name: "${nameprefix}Grid Frequency Protection - high"
     unit_of_measurement: "Hz"
     device_class: frequency
     entity_category: config
@@ -372,7 +376,7 @@ number:
     use_write_multiple: true
     modbus_controller_id: ${modbus_controller_id}
     id: "${prefix}grid_requency_protection_low"
-    name: "${prefix}Grid Frequency Protection - low"
+    name: "${nameprefix}Grid Frequency Protection - low"
     unit_of_measurement: "Hz"
     device_class: frequency
     entity_category: config

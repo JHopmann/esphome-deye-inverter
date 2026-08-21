@@ -11,10 +11,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+substitutions:
+  nameprefix: ""   # No Prefix (Single-Inverter)
+  prefix: ""       # No Prefix (Single-Inverter)
+  
 sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV1 Power"
+    name: "${nameprefix}PV1 Power"
     id: "${prefix}pv1_power"
     register_type: holding
     address: 186
@@ -27,7 +32,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV2 Power"
+    name: "${nameprefix}PV2 Power"
     id: "${prefix}pv2_power"
     register_type: holding
     address: 187
@@ -40,7 +45,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV3 Power"
+    name: "${nameprefix}PV3 Power"
     id: "${prefix}pv3_power"
     register_type: holding
     address: 188
@@ -53,7 +58,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV4 Power"
+    name: "${nameprefix}PV4 Power"
     id: "${prefix}pv4_power"
     register_type: holding
     address: 189
@@ -65,7 +70,7 @@ sensor:
     icon: "mdi:solar-power-variant"
 
   - platform: template
-    name: "${prefix}PV Power"
+    name: "${nameprefix}PV Power"
     unit_of_measurement: "W"
     id: "${prefix}pv_power"
     device_class: power
@@ -82,7 +87,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV1 Voltage"
+    name: "${nameprefix}PV1 Voltage"
     register_type: holding
     address: 109
     unit_of_measurement: "V"
@@ -95,7 +100,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV1 Current"
+    name: "${nameprefix}PV1 Current"
     register_type: holding
     address: 110
     unit_of_measurement: "A"
@@ -108,7 +113,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV2 Voltage"
+    name: "${nameprefix}PV2 Voltage"
     register_type: holding
     address: 111
     unit_of_measurement: "V"
@@ -121,7 +126,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV2 Current"
+    name: "${nameprefix}PV2 Current"
     register_type: holding
     address: 112
     unit_of_measurement: "A"
@@ -134,7 +139,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV3 Voltage"
+    name: "${nameprefix}PV3 Voltage"
     register_type: holding
     address: 113
     unit_of_measurement: "V"
@@ -147,7 +152,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV3 Current"
+    name: "${nameprefix}PV3 Current"
     register_type: holding
     address: 114
     unit_of_measurement: "A"
@@ -160,7 +165,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV4 Voltage"
+    name: "${nameprefix}PV4 Voltage"
     register_type: holding
     address: 115
     unit_of_measurement: "V"
@@ -173,7 +178,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}PV4 Current"
+    name: "${nameprefix}PV4 Current"
     register_type: holding
     address: 116
     unit_of_measurement: "A"
@@ -186,7 +191,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Daily PV Production"
+    name: "${nameprefix}Daily PV Production"
     id: "${prefix}daily_pv_production"
     register_type: holding
     address: 108
@@ -201,7 +206,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
-    name: "${prefix}Total PV Production"
+    name: "${nameprefix}Total PV Production"
     id: "${prefix}total_pv_production"
     register_type: holding
     address: 96

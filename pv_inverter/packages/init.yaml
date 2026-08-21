@@ -20,7 +20,8 @@ substitutions:
   modbus_hub_id_2: "modbus_2"    # Default Slave
   uart_hub_id_1: "modbus_uart_1" # Default Master
   uart_hub_id_2: "modbus_uart_2" # Default Slave
-  prefix: ""
+  nameprefix: ""   # No Prefix (Single-Inverter)
+  prefix: ""       # No Prefix (Single-Inverter)
 
 esphome:
   name: "${name}"
@@ -56,6 +57,15 @@ wifi:
     ssid: "${friendly_name} Fallback Hotspot"
     password: ${fallback_password}
 
+# ============ WEB-SERVER ============
+web_server:
+  port: 80
+
+# ============ OTA ============
+ota:
+  - platform: esphome
+    password: ${ota_password}
+
 captive_portal:
 
 modbus_controller:
@@ -72,13 +82,13 @@ debug:
 
 sensor:
   - platform: wifi_signal
-    name: "${prefix}ESP WiFi Signal"
+    name: "${nameprefix}ESP WiFi Signal"
     id: "${prefix}esp_wifi_signal"
     icon: mdi:wifi
     update_interval: 60s
     entity_category: diagnostic
   - platform: uptime
-    name: "${prefix}ESP Uptime"
+    name: "${nameprefix}ESP Uptime"
     id: "${prefix}esp_uptime"
     type: seconds
     icon: mdi:timer-check
@@ -86,22 +96,22 @@ sensor:
     entity_category: diagnostic
   - platform: debug
     free:
-      name: "${prefix}ESP Heap Free"
+      name: "${nameprefix}ESP Heap Free"
       id: "${prefix}esp_heap_free"
       icon: mdi:memory
       entity_category: diagnostic
     block:
-      name: "${prefix}ESP Heap Max Block"
+      name: "${nameprefix}ESP Heap Max Block"
       id: "${prefix}esp_heap_max_block"
       icon: mdi:memory
       entity_category: diagnostic
     loop_time:
-      name: "${prefix}ESP Loop Time"
+      name: "${nameprefix}ESP Loop Time"
       id: "${prefix}esp_loop_time"
       icon: mdi:reload
       entity_category: diagnostic
     cpu_frequency:
-      name: "${prefix}ESP CPU Frequency"
+      name: "${nameprefix}ESP CPU Frequency"
       id: "${prefix}esp_cpu_frequency"
       icon: mdi:cpu-32-bit
       unit_of_measurement: "MHz"
@@ -112,17 +122,17 @@ sensor:
 text_sensor:
   - platform: wifi_info
     ip_address:
-      name: "${prefix}ESP IP Address"
+      name: "${nameprefix}ESP IP Address"
       id: "${prefix}esp_ip_address"
       icon: mdi:ip-network
       entity_category: diagnostic
     ssid:
-      name: "${prefix}ESP WiFi SSID"
+      name: "${nameprefix}ESP WiFi SSID"
       id: "${prefix}esp_wifi_ssid"
       icon: mdi:access-point
       entity_category: diagnostic
     mac_address:
-      name: "${prefix}ESP Mac Address"
+      name: "${nameprefix}ESP Mac Address"
       id: "${prefix}esp_mac_address"
       icon: mdi:expansion-card
       entity_category: diagnostic
